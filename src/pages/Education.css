@@ -1,0 +1,236 @@
+/* =========== EDUCATION PAGE =========== */
+.education-page {
+    padding-top: 80px;
+}
+
+.edu-hero {
+    padding: 80px 0 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.edu-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top center, rgba(230, 0, 0, 0.06) 0%, transparent 60%);
+}
+
+.edu-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.edu-section {
+    padding: 80px 0;
+}
+
+.edu-section-header {
+    margin-bottom: 48px;
+}
+
+/* Helpline Grid */
+.helpline-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.helpline-card {
+    padding: 28px;
+    text-align: center;
+}
+
+.helpline-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 14px;
+}
+
+.helpline-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.helpline-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--red-primary);
+    margin-bottom: 8px;
+}
+
+.helpline-card p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Report Banner */
+.report-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 32px;
+    background: rgba(230, 0, 0, 0.04) !important;
+    border-color: rgba(230, 0, 0, 0.15) !important;
+}
+
+.report-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.report-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.report-banner h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.report-banner p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+/* Video Grid */
+.edu-videos {
+    background: var(--bg-secondary);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.video-card {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.video-iframe-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+}
+
+.video-iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-base) var(--radius-base) 0 0;
+}
+
+.video-info {
+    padding: 20px;
+}
+
+.video-info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.video-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Tips */
+.tips-section {
+    background: var(--bg-primary);
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.tip-card {
+    padding: 32px 24px;
+    border-left: 3px solid var(--red-primary);
+    background: var(--bg-card);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    transition: all var(--transition-base);
+}
+
+.tip-card:hover {
+    background: var(--bg-card-hover);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.tip-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: rgba(230, 0, 0, 0.15);
+    display: block;
+    margin-bottom: 12px;
+    line-height: 1;
+}
+
+.tip-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.tip-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+    .helpline-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .helpline-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .report-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .report-content {
+        flex-direction: column;
+    }
+}

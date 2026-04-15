@@ -1,0 +1,343 @@
+/* =========== DASHBOARD =========== */
+.dashboard-page {
+    padding-top: 72px;
+    min-height: 100vh;
+    background: var(--bg-primary);
+}
+
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: calc(100vh - 72px);
+}
+
+/* Sidebar */
+.dash-sidebar {
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-subtle);
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 72px;
+    height: calc(100vh - 72px);
+}
+
+.dash-sidebar-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 20px;
+}
+
+.dash-user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dash-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(230, 0, 0, 0.1);
+    border: 2px solid var(--border-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.dash-user-info h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.dash-user-info span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.dash-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.dash-nav button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    border-radius: var(--radius-sm);
+    text-align: left;
+    transition: all var(--transition-fast);
+}
+
+.dash-nav button:hover {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-primary);
+}
+
+.dash-nav button.active {
+    background: rgba(230, 0, 0, 0.08);
+    color: var(--red-primary);
+}
+
+.dash-sidebar-footer {
+    padding-top: 20px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+/* Main */
+.dash-main {
+    padding: 32px 40px;
+    overflow-y: auto;
+}
+
+.dash-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.dash-greeting {
+    color: var(--text-muted);
+    margin-bottom: 32px;
+}
+
+/* Stats */
+.dash-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.dash-stat {
+    padding: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ds-icon {
+    font-size: 1.5rem;
+}
+
+.ds-value {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.ds-value.safe {
+    color: #00e676;
+}
+
+.ds-value.danger {
+    color: var(--red-primary);
+}
+
+.ds-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Table */
+.dash-table-wrap {
+    padding: 0;
+    overflow: hidden;
+}
+
+.dash-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dash-table th {
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.dash-table td {
+    padding: 14px 20px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.dash-table tr:last-child td {
+    border-bottom: none;
+}
+
+.dash-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.target-cell {
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.date-cell {
+    white-space: nowrap;
+    color: var(--text-muted) !important;
+    font-size: 0.82rem !important;
+}
+
+.type-badge {
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.badge-safe {
+    background: rgba(0, 230, 118, 0.1);
+    color: #00e676;
+}
+
+.badge-danger {
+    background: rgba(230, 0, 0, 0.1);
+    color: #e60000;
+}
+
+.badge-warn {
+    background: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+}
+
+/* Empty State */
+.dash-empty {
+    padding: 60px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.dash-empty span {
+    font-size: 2.5rem;
+}
+
+.dash-empty p {
+    color: var(--text-muted);
+}
+
+.dash-empty a {
+    color: var(--red-primary);
+    font-weight: 700;
+}
+
+/* Profile */
+.profile-card {
+    padding: 32px;
+    max-width: 500px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.profile-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(230, 0, 0, 0.1);
+    border: 2px solid var(--border-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.profile-header h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.profile-header p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.profile-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+@media (max-width: 900px) {
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .dash-sidebar {
+        position: static;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .dash-sidebar-header {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .dash-nav {
+        flex-direction: row;
+    }
+
+    .dash-sidebar-footer {
+        display: none;
+    }
+
+    .dash-main {
+        padding: 24px 16px;
+    }
+
+    .dash-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .dash-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
