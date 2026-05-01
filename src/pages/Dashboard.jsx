@@ -14,8 +14,9 @@ function Dashboard() {
             navigate('/login')
             return
         }
-        setUser(JSON.parse(userData))
-        setHistory(JSON.parse(localStorage.getItem('cyberHistory') || '[]'))
+        const userObj = JSON.parse(userData)
+        setUser(userObj)
+        setHistory(JSON.parse(localStorage.getItem(`cyberHistory_${userObj.email}`) || '[]'))
     }, [navigate])
 
     if (!user) return null

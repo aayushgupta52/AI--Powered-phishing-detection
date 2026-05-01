@@ -21,7 +21,7 @@ function Tools() {
         setUrlResult(null)
 
         try {
-            const response = await fetch('http://localhost:3001/analyze-url', {
+            const response = await fetch('/analyze-url', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ url: trimmed })
@@ -35,9 +35,11 @@ function Tools() {
                 setUrlResult(data)
 
                 // Save to history
-                const history = JSON.parse(localStorage.getItem('cyberHistory') || '[]')
+                const userObj = JSON.parse(localStorage.getItem('cyberUser') || '{}')
+                const historyKey = userObj.email ? `cyberHistory_${userObj.email}` : 'cyberHistory'
+                const history = JSON.parse(localStorage.getItem(historyKey) || '[]')
                 history.unshift({ type: 'URL Scan', target: trimmed, result: data.label, date: new Date().toISOString(), score: data.score })
-                localStorage.setItem('cyberHistory', JSON.stringify(history.slice(0, 50)))
+                localStorage.setItem(historyKey, JSON.stringify(history.slice(0, 50)))
             }
         } catch (error) {
             setUrlResult({ score: 50, status: 'warning', label: 'Offline', message: 'Could not reach analysis server. Please ensure backend is running.' })
@@ -55,7 +57,7 @@ function Tools() {
         setPhishResult(null)
 
         try {
-            const response = await fetch('http://localhost:3001/analyze-phishing', {
+            const response = await fetch('/analyze-phishing', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ text })
@@ -64,9 +66,11 @@ function Tools() {
             setPhishResult(data)
 
             // Save to history
-            const history = JSON.parse(localStorage.getItem('cyberHistory') || '[]')
+            const userObj = JSON.parse(localStorage.getItem('cyberUser') || '{}')
+            const historyKey = userObj.email ? `cyberHistory_${userObj.email}` : 'cyberHistory'
+            const history = JSON.parse(localStorage.getItem(historyKey) || '[]')
             history.unshift({ type: 'Phishing Analysis', target: text.substring(0, 80) + '...', result: data.riskLevel, date: new Date().toISOString(), score: data.riskScore })
-            localStorage.setItem('cyberHistory', JSON.stringify(history.slice(0, 50)))
+            localStorage.setItem(historyKey, JSON.stringify(history.slice(0, 50)))
         } catch {
             // Offline fallback
             const hasUrgency = /urgent|immediately|expire|suspend|verify now|act now|limited time/i.test(text)

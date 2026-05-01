@@ -245,7 +245,13 @@ app.post('/api/persons', async (req, res) => {
     }
 })
 
-const PORT = 3001
+// Serve static files from React build
+app.use(express.static(join(__dirname, '../dist')))
+app.get('*', (req, res) => {
+    res.sendFile(join(__dirname, '../dist/index.html'))
+})
+
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log(`\n🛡️  CyberShield API server running on http://localhost:${PORT}`)
     console.log(`   API Key: ${API_KEY ? '✅ Configured' : '❌ Not set (add GEMINI_API_KEY to .env)'}\n`)

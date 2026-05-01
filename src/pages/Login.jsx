@@ -16,8 +16,6 @@ function Login() {
         const user = users.find(u => u.email === email && u.password === password)
 
         if (user) {
-            // Clear previous user's scan history on login
-            localStorage.removeItem('cyberHistory')
             localStorage.setItem('cyberUser', JSON.stringify({ name: user.name, email: user.email }))
             navigate('/dashboard')
         } else {
@@ -72,18 +70,7 @@ function Login() {
                             <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%' }}>Sign In</button>
                         </form>
 
-                        <div className="auth-divider">
-                            <span>or continue with</span>
-                        </div>
 
-                        <div className="oauth-buttons">
-                            <button className="btn btn-ghost oauth-btn">
-                                <span>G</span> Google
-                            </button>
-                            <button className="btn btn-ghost oauth-btn">
-                                <span>⌨</span> GitHub
-                            </button>
-                        </div>
 
                         <p className="auth-switch">
                             Don't have an account? <Link to="/signup">Create account</Link>

@@ -17,10 +17,10 @@ function Footer() {
                             Protecting businesses and individuals from cyber threats with AI-powered security solutions.
                         </p>
                         <div className="footer-social">
-                            <a href="#" aria-label="Twitter" className="social-link">𝕏</a>
-                            <a href="#" aria-label="LinkedIn" className="social-link">in</a>
-                            <a href="#" aria-label="GitHub" className="social-link">⌨</a>
-                            <a href="#" aria-label="Instagram" className="social-link">📷</a>
+                            <a href="https://x.com/cybershield" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="social-link">𝕏</a>
+                            <a href="https://linkedin.com/company/cybershield" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-link">in</a>
+                            <a href="https://github.com/cybershield" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="social-link">⌨</a>
+                            <a href="https://instagram.com/cybershield" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-link">📷</a>
                         </div>
                     </div>
 
@@ -52,15 +52,15 @@ function Footer() {
                         <ul className="footer-contact-list">
                             <li>
                                 <span className="contact-icon">📍</span>
-                                <span>8201 SW 44th St, Oklahoma City, OK</span>
+                                <span>Andheri West, Mumbai, MH, India</span>
                             </li>
                             <li>
                                 <span className="contact-icon">📞</span>
-                                <span>+312 123 4567</span>
+                                <span>+91 98765 43210</span>
                             </li>
                             <li>
                                 <span className="contact-icon">✉️</span>
-                                <span>info@cybershield.com</span>
+                                <a href="mailto:info@cybershield.com">info@cybershield.com</a>
                             </li>
                             <li>
                                 <span className="contact-icon">🕐</span>

@@ -33,15 +33,12 @@ function Signup() {
         localStorage.setItem('cyberUsers', JSON.stringify(users))
         localStorage.setItem('cyberUser', JSON.stringify({ name, email }))
 
-        // Clear previous user's scan history so new account starts fresh
-        localStorage.removeItem('cyberHistory')
-
         // Also save user to Neon DB via backend API
         try {
             const nameParts = name.trim().split(' ')
             const firstName = nameParts[0] || name
             const lastName = nameParts.slice(1).join(' ') || '-'
-            await fetch('http://localhost:3001/api/persons', {
+            await fetch('/api/persons', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ firstName, lastName, email, role: 'User', status: 'Active' })
@@ -102,18 +99,7 @@ function Signup() {
                             <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%', marginTop: '8px' }}>Create Account</button>
                         </form>
 
-                        <div className="auth-divider">
-                            <span>or sign up with</span>
-                        </div>
 
-                        <div className="oauth-buttons">
-                            <button className="btn btn-ghost oauth-btn">
-                                <span>G</span> Google
-                            </button>
-                            <button className="btn btn-ghost oauth-btn">
-                                <span>⌨</span> GitHub
-                            </button>
-                        </div>
 
                         <p className="auth-switch">
                             Already have an account? <Link to="/login">Sign in</Link>
