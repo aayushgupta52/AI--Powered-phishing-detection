@@ -21,7 +21,7 @@ function Tools() {
         setUrlResult(null)
 
         try {
-            const response = await fetch('/analyze-url', {
+            const response = await fetch('http://localhost:3001/analyze-url', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ url: trimmed })
@@ -57,7 +57,7 @@ function Tools() {
         setPhishResult(null)
 
         try {
-            const response = await fetch('/analyze-phishing', {
+            const response = await fetch('http://localhost:3001/analyze-phishing', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ text })
