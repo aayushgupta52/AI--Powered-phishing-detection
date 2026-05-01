@@ -38,7 +38,7 @@ function Signup() {
             const nameParts = name.trim().split(' ')
             const firstName = nameParts[0] || name
             const lastName = nameParts.slice(1).join(' ') || '-'
-            await fetch('http://localhost:3001/api/persons', {
+            await fetch('/api/persons', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ firstName, lastName, email, role: 'User', status: 'Active' })

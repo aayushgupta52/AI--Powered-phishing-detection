@@ -20,7 +20,7 @@ function Users() {
 
   const fetchPersons = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/persons')
+      const response = await fetch('/api/persons')
       if (!response.ok) throw new Error('Failed to fetch data')
       const data = await response.json()
       setPersons(data)
@@ -42,7 +42,7 @@ function Users() {
     setSuccess(null)
 
     try {
-      const response = await fetch('http://localhost:3001/api/persons', {
+      const response = await fetch('/api/persons', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
