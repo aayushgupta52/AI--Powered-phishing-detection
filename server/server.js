@@ -30,8 +30,8 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-// Read API key from .env file manually (no dotenv dependency needed)
-let API_KEY = ''
+// Read API key from environment variable or .env file
+let API_KEY = process.env.GROQ_API_KEY || ''
 function getApiKey() {
     if (API_KEY) return API_KEY;
     try {
@@ -45,7 +45,7 @@ function getApiKey() {
 }
 getApiKey(); // Initial read attempt
 if (!API_KEY) {
-    console.log('⚠️  No GROQ_API_KEY found in .env. Create one or replace PASTE_YOUR_API_KEY_HERE')
+    console.log('⚠️  No GROQ_API_KEY found. Set it as environment variable or in .env file.')
 }
 
 const SYSTEM_PROMPT = `You are CyberShield AI Assistant — a highly specialized chatbot focusing exclusively on phishing and URL safety. 
@@ -247,7 +247,7 @@ app.post('/api/persons', async (req, res) => {
 
 // Serve static files from React build
 app.use(express.static(join(__dirname, '../dist')))
-app.get('*', (req, res) => {
+app.get('{*path}', (req, res) => {
     res.sendFile(join(__dirname, '../dist/index.html'))
 })
 
